@@ -1,0 +1,23 @@
+body {
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  transition: 0.3s ease;
+
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}

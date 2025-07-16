@@ -1,1 +1,8 @@
-"venv/\n__pycache__/\n*.pyc\ndb.sqlite3\n.env\n/media/\n/static/" 
+.env
+*.pyc
+__pycache__/
+staticfiles/
+media/
+.venv/
+db.sqlite3
+

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-white d-flex align-items-center">
+                    📝 <span class="ms-2">My To-Do List</span>
+                </h2>
+                <a href="{% url 'task_create' %}" class="btn btn-primary">+ Add Task</a>
+            </div>
+
+            {% if tasks %}
+                {% for task in tasks %}
+                    <div class="card mb-3 p-3 shadow-sm">
+                        <div class="d-flex align-items-center">
+                            {% if task.image %}
+                                <img src="{{ task.image.url }}" class="me-3 rounded"
+                                     style="width: 80px; height: 80px; object-fit: cover;" alt="Task image">
+                            {% endif %}
+
+                            <div class="flex-grow-1">
+                                <h5 class="mb-1">{{ task.title }}</h5>
+                                <p class="text-muted small mb-2">Created: {{ task.created_at|date:"d M Y" }}</p>
+
+                                <a href="{% url 'task_update' task.pk %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
+                                <a href="{% url 'task_delete' task.pk %}"
+                                   class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <div class="alert alert-info text-center shadow">You have no tasks yet. Start by adding one!</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
